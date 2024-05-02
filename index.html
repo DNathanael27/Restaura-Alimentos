@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/index.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <div class="menu">
+        <ul class="lista">
+            <li><a href="#container">Home</a></li>
+            <li><a href="#container-3">Sobre</a></li>
+            <li><a href="#container-4">Importância</a></li>
+            <li><a href="#container-5">Curiosidades</a></li>
+            <li><a href="#container-6">Contato</a></li> 
+        </ul>
+    </div>
+    <div class="container-geral">
+
+        <div id="container">
+            <div class="container1">
+                <div class="txt-container1">
+                    <h1>Restaura Alimentos</h1>    
+                </div>
+            </div>
+    
+            <div class="container-2">
+                <div class="txt-container2">
+                    <p>Bem-vindo à nossa comunidade dedicada a reduzir o desperdício de alimentos e promover práticas mais sustentáveis. Todos os dias, toneladas de comida boa são jogadas fora enquanto milhões de pessoas passam fome ao redor do mundo</p>
+                    <br>
+                    <p>Juntos podemos mudar isso.</p>
+                </div>
+                <div class="img-container2"></div>
+            </div>
+        </div>
+
+
+        <div id="container-3"></div>
+        <div id="container-4"></div>
+        <div id="container-5"></div>
+        <div id="container-6"></div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('.lista li a');
+    const menuHeight = document.querySelector('.menu').offsetHeight; // Altura do menu fixo
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            // Calcula a posição da seção alvo, considerando o deslocamento do menu fixo
+            const targetOffset = targetSection.offsetTop - menuHeight;
+
+            // Adiciona a classe scrolling ao body para aplicar a transição suave
+            document.body.classList.add('scrolling');
+
+            // Faz a rolagem suave até a seção alvo
+            window.scrollTo({
+                top: targetOffset,
+                behavior: 'smooth'
+            });
+
+            // Remove a classe scrolling após a rolagem terminar
+            setTimeout(() => {
+                document.body.classList.remove('scrolling');
+            }, 500); // Tempo de espera deve ser igual ao tempo de transição no CSS
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
