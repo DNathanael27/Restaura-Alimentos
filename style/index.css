@@ -99,7 +99,7 @@ nav .lista li a.active {
 
 .txt-container2 p {
     animation-duration: 2s;
-    animation-name: slidein;
+    animation-name: fadeIn;
     text-align: justify;
     color: #333;
     font-size: 18px;
@@ -156,12 +156,12 @@ nav .lista li a.active {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
 }
 
 .section.fade-in {
     animation-name: fadeIn;
-    animation-duration: 1s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
 }
