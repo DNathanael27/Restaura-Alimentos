@@ -71,6 +71,8 @@ nav .lista li a.active {
 }
 
 #container h1 {
+    animation-duration: 1.5s;
+    animation-name: fadeIn;
     color: #ff5733;
     font-size: 70px;
     margin-bottom: 20px;
@@ -83,8 +85,9 @@ nav .lista li a.active {
 }
 
 .img-container2 {
+    animation: moveUpDown 2s infinite;
     flex: 1;
-    background: url('../imgs/img1-removebg-preview.png') no-repeat ;
+    background: url('../imgs/img1-removebg-preview.png') no-repeat;
     background-size: contain;
     height: 400px;
 }
@@ -95,6 +98,8 @@ nav .lista li a.active {
 }
 
 .txt-container2 p {
+    animation-duration: 2s;
+    animation-name: slidein;
     text-align: justify;
     color: #333;
     font-size: 18px;
@@ -135,9 +140,28 @@ nav .lista li a.active {
     }
 }
 
-/* A animação será aplicada somente quando a classe 'fade-in' estiver presente */
+@keyframes slidein {
+    from {
+        margin-top: 100%;
+        width: 300%;
+    }
+    to {
+        margin-top: 0%;
+        width: 100%;
+    }
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 .section.fade-in {
-    animation-name: fadeIn; /* Nome da animação */
-    animation-duration: 1s; /* Duração da animação */
-    animation-fill-mode: forwards; /* Mantém o estado final após a animação */
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
