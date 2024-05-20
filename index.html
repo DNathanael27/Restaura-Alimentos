@@ -15,7 +15,7 @@
                 <li><a href="#container-3">Sobre</a></li>
                 <li><a href="#container-4">Importância</a></li>
                 <li><a href="#container-5">Curiosidades</a></li>
-                <li><a href="#container-6">Contato</a></li>
+                <li><a href="#container-6">Gráfico</a></li>
             </ul>
         </nav>
     </header>
@@ -38,11 +38,44 @@
         </section>
 
         <section id="container-3" class="section"></section>
-        <section id="container-4" class="section"></section>
-        <section id="container-5" class="section"></section>
-        <section id="container-6" class="section"></section>
-    </main>
 
+        <section id="container-4" class="section"></section>
+
+        <section id="container-5" class="section"></section>
+
+        <section id="container-6" class="section">
+            <div class="txt-container1">
+                <h1>Gráfico de Disperdício</h1>
+            </div>
+            <canvas id="myChart" width="300" height="100"></canvas>
+        </section>
+    </main>
+      
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/index.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+      
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Jun', 'Jul'],
+          datasets: [{
+            label: 'Disperdício',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1,
+            backgroundColor: ['rgba(255,87,51)']
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
 </body>
 </html>

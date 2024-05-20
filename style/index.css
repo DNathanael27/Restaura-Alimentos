@@ -24,7 +24,7 @@ header.menu {
     width: 100%;
     background-color: #ff5733;
     height: 10vh;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -44,15 +44,16 @@ nav .lista li {
 }
 
 nav .lista li a {
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
     font-size: 18px;
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
 }
 
 nav .lista li a:hover,
 nav .lista li a.active {
-    color: #c70039;
+    color: #363636; 
+    background-color: rgba(255, 87, 51, 0.2);
 }
 
 .container-geral {
@@ -75,6 +76,14 @@ nav .lista li a.active {
     animation-name: fadeIn;
     color: #ff5733;
     font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.txt-container1{
+    animation-duration: 1.5s;
+    animation-name: fadeIn;
+    color: #ff5733;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
@@ -109,7 +118,6 @@ nav .lista li a.active {
 #container-4,
 #container-5,
 #container-6 {
-    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -128,7 +136,7 @@ nav .lista li a.active {
 }
 
 #container-6 {
-    background-color: #808080;
+    background-color: #fff;
 }
 
 @keyframes fadeIn {
@@ -164,4 +172,8 @@ nav .lista li a.active {
     animation-name: fadeIn;
     animation-duration: 3s;
     animation-fill-mode: forwards;
+}
+
+#myChart{
+    margin-top: 10vh;
 }
