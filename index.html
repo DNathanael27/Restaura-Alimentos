@@ -47,36 +47,110 @@
             <div class="txt-container1">
                 <h1>Gráfico de Disperdício</h1>
             </div>
-            <canvas id="myChart" width="300" height="100"></canvas>
+            <div class="charts-container">
+                <canvas id="barra"></canvas>
+                <canvas id="pizza"></canvas>
+            </div>
         </section>
     </main>
+
+    <script src="./js/index.js"></script>
       
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./js/index.js"></script>
-
     <script>
-        const ctx = document.getElementById('myChart');
+        const ctx_barra = document.getElementById('barra');
+        const ctx_pizza = document.getElementById('pizza');
+
+        const data_barra = {
+            labels: ['Restaurantes Fast Food', 'Restaurantes com Serviço Completo'],
+            datasets: [{
+                label: 'Disperdício (%)',
+                data: [9.55, 11.30], // Valores já em porcentagem
+                backgroundColor: [
+                    'rgb(255,87,51)',
+                    'rgb(255,87,51)'
+                ],
+                borderWidth: 1
+            }]
+        };
       
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Jun', 'Jul'],
-          datasets: [{
-            label: 'Disperdício',
-            data: [12, 19, 3, 5, 2, 3],
-            borderWidth: 1,
-            backgroundColor: ['rgba(255,87,51)']
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true
+        new Chart(ctx_barra, {
+            type: 'bar',
+            data: data_barra,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 20, 
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%'; // Adiciona o símbolo de porcentagem aos valores
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + '%'; // Adiciona o símbolo de porcentagem aos tooltips
+                            }
+                        }
+                    }
+                }
             }
-          }
-        }
-      });
+        });
+
+        const data_pizza = {
+            labels: ['Realizão doação', 'Doa dependendo da situação', 'Não doam'],
+            datasets: [{
+                label: '',
+                data: [60, 30, 10], // Valores baseados em porcentagem
+                backgroundColor: [
+                    'rgb(255,87,51)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        new Chart(ctx_pizza, {
+            type: 'pie',
+            data: data_pizza,
+            options: {
+                responsive: true,
+                layout: {
+                    padding: 10
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            formatter: function(value, context) {
+                                const dataset = context.chart.data.datasets[0];
+                                const total = dataset.data.reduce((prevValue, currentValue) => prevValue + currentValue);
+                                const percentage = (value / total * 100).toFixed(2);
+                                return `${context.chart.data.labels[context.dataIndex]}: ${percentage}%`;
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const dataset = context.dataset;
+                                const total = dataset.data.reduce((prevValue, currentValue) => prevValue + currentValue);
+                                const value = dataset.data[context.dataIndex];
+                                const percentage = (value / total * 100).toFixed(2);
+                                return `${percentage}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>

@@ -14,7 +14,6 @@ body {
     font-family: 'Shantell Sans', cursive;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
 }
 
 header.menu {
@@ -53,15 +52,21 @@ nav .lista li a {
 nav .lista li a:hover,
 nav .lista li a.active {
     color: #363636; 
-    background-color: rgba(255, 87, 51, 0.2);
-}
-
-.container-geral {
-    padding-top: 10vh;
 }
 
 .section {
     padding: 5vh 10vw;
+    opacity: 0; 
+    animation: fade-in 2s forwards; 
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 #container {
@@ -72,16 +77,13 @@ nav .lista li a.active {
 }
 
 #container h1 {
-    animation-duration: 1.5s;
-    animation-name: fadeIn;
     color: #ff5733;
     font-size: 70px;
     margin-bottom: 20px;
+    margin-top: 15vh;
 }
 
-.txt-container1{
-    animation-duration: 1.5s;
-    animation-name: fadeIn;
+.txt-container1 {
     color: #ff5733;
     font-size: 30px;
     margin-bottom: 20px;
@@ -107,8 +109,6 @@ nav .lista li a.active {
 }
 
 .txt-container2 p {
-    animation-duration: 2s;
-    animation-name: fadeIn;
     text-align: justify;
     color: #333;
     font-size: 18px;
@@ -116,11 +116,16 @@ nav .lista li a.active {
 
 #container-3,
 #container-4,
-#container-5,
-#container-6 {
+#container-5{
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+
+#container-6{
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
 }
 
 #container-3 {
@@ -139,26 +144,6 @@ nav .lista li a.active {
     background-color: #fff;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slidein {
-    from {
-        margin-top: 100%;
-        width: 300%;
-    }
-    to {
-        margin-top: 0%;
-        width: 100%;
-    }
-}
-
 @keyframes moveUpDown {
     0%, 100% {
         transform: translateY(0);
@@ -168,12 +153,20 @@ nav .lista li a.active {
     }
 }
 
-.section.fade-in {
-    animation-name: fadeIn;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
+.charts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-#myChart{
-    margin-top: 10vh;
+#barra, #pizza {
+    flex: 1;
+    max-width: 45%;
+    max-height: 45vh;
+    margin-top: 5vh;
+}
+
+#pizza { 
+    margin-left: 5vw;    
 }
