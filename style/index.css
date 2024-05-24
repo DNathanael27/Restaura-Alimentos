@@ -56,8 +56,11 @@ nav .lista li a.active {
 
 .section {
     padding: 5vh 10vw;
-    opacity: 0; 
-    animation: fade-in 3s forwards; 
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fade-in 2s forwards; 
 }
 
 @keyframes fade-in {
@@ -92,20 +95,41 @@ nav .lista li a.active {
 .container-2 {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: center;    
 }
 
-.img-container2 {
-    animation: moveUpDown 2s infinite;
+.img1 {
     flex: 1;
-    background: url('../imgs/img1-removebg-preview.png') no-repeat;
+    background: url('../imgs/img1.png') no-repeat;
+    background-size: contain;
+    height: 400px;
+}
+
+.img2 {
+    flex: 1;
+    background: url('../imgs/img2.png') no-repeat center;
+    background-size: contain;
+    height: 450px;
+}
+
+.img3 {
+    flex: 1;
+    background: url('../imgs/img3.png') no-repeat center;
+    background-size: contain;
+    height: 450px;
+    
+}
+
+.img4 {
+    flex: 1;
+    background: url('../imgs/img4.png') no-repeat center;
     background-size: contain;
     height: 400px;
 }
 
 .txt-container2 {
     flex: 1;
-    margin-left: 12vw;
+    margin-left: 10vw;
 }
 
 .txt-container2 p {
@@ -114,34 +138,31 @@ nav .lista li a.active {
     font-size: 18px;
 }
 
+.txt-container-rigth{
+    margin-right: 10vw;
+    flex: 1;
+}
+
+.txt-container-rigth p{
+    text-align: justify;
+    color: #333;
+    font-size: 18px;
+}
+
 #container-3,
 #container-4,
 #container-5{
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding: 5vh 0;
 }
 
 #container-6{
     align-items: center;
     justify-content: center;
     height: 90vh;
-}
-
-#container-3 {
-    background-color: #5f9ea0;
-}
-
-#container-4 {
-    background-color: #8b0000;
-}
-
-#container-5 {
-    background-color: #ffebcd;
-}
-
-#container-6 {
-    background-color: #fff;
 }
 
 @keyframes moveUpDown {
