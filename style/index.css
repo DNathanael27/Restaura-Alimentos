@@ -99,6 +99,7 @@ nav .lista li a.active {
 }
 
 .img1 {
+    animation: moveUpDown 2s infinite;
     flex: 1;
     background: url('../imgs/img1.png') no-repeat;
     background-size: contain;
