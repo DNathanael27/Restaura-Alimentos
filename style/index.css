@@ -54,6 +54,18 @@ nav .lista li a.active {
     color: #363636; 
 }
 
+p a {
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-size: 18px;
+    color: #ff5733;
+    text-decoration: none;
+}
+
+p a:hover, 
+p a.active{
+    color: #363636; 
+}
+
 .section {
     padding: 5vh 10vw;
 }
