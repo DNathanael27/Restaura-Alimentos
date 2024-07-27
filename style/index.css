@@ -43,7 +43,7 @@ nav .lista li {
 }
 
 nav .lista li a {
-    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, background-color 2s ease-in-out;
     font-size: 18px;
     color: white;
     text-decoration: none;
@@ -51,7 +51,7 @@ nav .lista li a {
 
 nav .lista li a:hover,
 nav .lista li a.active {
-    color: #363636; 
+    color: gainsboro; 
 }
 
 p a {
@@ -168,7 +168,7 @@ p a.active{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 85vh;
     padding: 5vh 0;
 }
 
@@ -183,7 +183,7 @@ p a.active{
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-30px);
+        transform: translateY(-10px);
     }
 }
 
